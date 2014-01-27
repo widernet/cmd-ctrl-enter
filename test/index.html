@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>MyLib Test Suite</title>
-
-	<!-- Include the test framework -->
-	<link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
-	<script src="../node_modules/qunitjs/qunit/qunit.js"></script>
-
-	<!-- Include the source code -->
-	<script src="../src/MyLib.js"></script>
-
-	<!-- Include the test suite(s) -->
-	<script src="./MyLib.test.js"></script>
+  <meta charset="utf-8">
+  <title>cmd-ctrl-enter Test</title>
+  <link rel="stylesheet" href="../libs/qunit.css">
 </head>
 <body>
-	<div id="qunit"></div>
-	<div id="qunit-fixture">test markup</div>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+    <form>
+    	<textarea></textarea>
+    </form>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="../libs/qunit.js"></script>
+
+  <script src="../cmd-ctrl-enter.js"></script>
+  <script src="cmd-ctl-enter_test.js"></script>
 </body>
 </html>
