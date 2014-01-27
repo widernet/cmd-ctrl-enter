@@ -17,3 +17,9 @@ That’s it! Alternatively, do it manually:
 Returns the supported key symbol (<key>⌘</key> on a Mac, <key>Ctrl</key> on anything else):
 
     $('textarea').cmdCtrlEnter('which');
+
+### `destroy`
+
+Removes the behaviour:
+
+    $('textarea').cmdCtrlEnter('destroy');

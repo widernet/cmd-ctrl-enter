@@ -6,11 +6,14 @@
 
     if(o === 'which') return mac ? '⌘' : 'Ctrl';
 
+    if(o === 'destroy') return this.unbind('keydown.cmdCtrlEnter');
+
     this.filter('textarea').each(function(i, el) {
       var $el = $(el), $form = $el.parents('form');
 
-      $el.on('keydown', function(evt) {
-        if(evt.which === 13 && ((evt.ctrlKey && !mac) || evt.metaKey)) $form.submit();
+      $el.on('keydown.cmdCtrlEnter', function(evt) {
+        if(evt.which === 13 && ((evt.ctrlKey && !mac) || evt.metaKey))
+          $form.submit();
       });
     });
     return this;

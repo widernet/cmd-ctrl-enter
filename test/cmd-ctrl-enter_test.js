@@ -52,4 +52,9 @@ test('Returns the jQuery object', 1, function() {
       equal($('<textarea />').cmdCtrlEnter('which'), 'Ctrl');
     });
   }
+
+  test('`destroy` unbinds the events', function() {
+    this.$textarea.cmdCtrlEnter('destroy');
+    ok(!$._data(this.$textarea[0], 'events'));
+  });
 })();
