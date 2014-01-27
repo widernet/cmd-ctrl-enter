@@ -1,16 +1,16 @@
 {
-  "name": "mylib",
-  "version": "0.0.3",
-  "description": "My First Library.",
+  "name": "cmd-ctrl-enter",
+  "version": "0.0.1",
+  "description": "A jQuery plugin that enables `⌘`/`ctrl` + `enter` to submit a form (when applied to a textarea).",
   "keywords": [
     "library"
   ],
-  "homepage": "http://example.org/mylib",
+  "homepage": "https://github.com/widernet/cmd-ctrl-enter",
   "repository": {
     "type": "git",
-    "url": "git://github.com/JohnDoe/node-mylib.git"
+    "url": "git://github.com/widernet/cmd-ctrl-enter.git"
   },
-  "bugs": "https://github.com/JohnDoe/node-mylib/issues",
+  "bugs": "https://github.com/widernet/cmd-ctrl-enter/issues",
   "licenses": [
     {
       "type": "MIT",
@@ -18,10 +18,10 @@
     }
   ],
   "author": {
-    "name": "John Doe",
-    "web": "https://github.com/JohnDoe"
+    "name": "Dom Christie",
+    "web": "http://domchristie.co.uk"
   },
-  "main": "./src/MyLib.js",
+  "main": "./src/cmd-ctrl-enter.js",
   "scripts": {
     "test": "grunt test"
   },
