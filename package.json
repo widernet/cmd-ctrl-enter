@@ -1,6 +1,6 @@
 {
   "name": "cmd-ctrl-enter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A jQuery plugin that enables `⌘`/`ctrl` + `enter` to submit a form (when applied to a textarea).",
   "keywords": [
     "library"
