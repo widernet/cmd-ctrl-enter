@@ -1,7 +1,10 @@
 (function($) {
-  $.fn.cmdCtrlEnter = function() {
+  $.fn.cmdCtrlEnter = function(o) {
+
     var nav = window.navigator,
         mac = 'platform' in nav && (/^Mac/).test(nav.platform);
+
+    if(o === 'which') return mac ? '⌘' : 'Ctrl';
 
     this.filter('textarea').each(function(i, el) {
       var $el = $(el), $form = $el.parents('form');

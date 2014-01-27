@@ -24,7 +24,7 @@ test('Returns the jQuery object', 1, function() {
       this.$textarea.trigger($.Event("keydown", { keyCode: 13, which: 13, metaKey: true }));
     });
 
-    test('does not submit form on ctrl+enter', 1, function() {
+    test('Does not submit form on ctrl+enter', 1, function() {
       this.$form.on('submit', function(evt) {
         ok(true, 'Form was submitted once');
         return false;
@@ -32,6 +32,10 @@ test('Returns the jQuery object', 1, function() {
       this.$form.trigger('submit');
 
       this.$textarea.trigger($.Event("keydown", { keyCode: 13, which: 13, ctrlKey: true }));
+    });
+
+    test('`which` returns "⌘" on a Mac', function() {
+      equal($('<textarea />').cmdCtrlEnter('which'), '⌘');
     });
   }
   else {
@@ -42,6 +46,10 @@ test('Returns the jQuery object', 1, function() {
       });
 
       this.$textarea.trigger($.Event("keydown", { keyCode: 13, which: 13, ctrlKey: true }));
+    });
+
+    test('`which` returns "Ctrl" on anything other than a Mac', function() {
+      equal($('<textarea />').cmdCtrlEnter('which'), 'Ctrl');
     });
   }
 })();
