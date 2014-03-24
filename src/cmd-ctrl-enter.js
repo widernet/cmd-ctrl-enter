@@ -9,11 +9,11 @@
     if(o === 'destroy') return this.unbind('keydown.cmdCtrlEnter');
 
     this.filter('textarea').each(function(i, el) {
-      var $el = $(el), $form = $el.parents('form');
+      var $el = $(el), $form = $el.parents('form'), $btn = $form.find('[type=submit]');
 
       $el.on('keydown.cmdCtrlEnter', function(evt) {
         if(evt.which === 13 && ((evt.ctrlKey && !mac) || evt.metaKey))
-          $form.submit();
+          if(!$btn.attr('disabled')) $form.submit();
       });
     });
     return this;

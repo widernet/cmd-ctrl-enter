@@ -2,6 +2,9 @@ module('cmd-ctrl-enter', {
   setup: function() {
     this.$form = $('form');
     this.$textarea = $('textarea').cmdCtrlEnter();
+    this.$btn = this.$form.find('[type=submit]');
+    this.cmdEnterEvent = $.Event("keydown", { keyCode: 13, which: 13, metaKey: true });
+    this.ctrlEnterEvent = $.Event("keydown", { keyCode: 13, which: 13, ctrlKey: true });
   }
 });
 
@@ -21,7 +24,7 @@ test('Returns the jQuery object', 1, function() {
         return false;
       });
 
-      this.$textarea.trigger($.Event("keydown", { keyCode: 13, which: 13, metaKey: true }));
+      this.$textarea.trigger(this.cmdEnterEvent);
     });
 
     test('Does not submit form on ctrl+enter', 1, function() {
@@ -31,7 +34,18 @@ test('Returns the jQuery object', 1, function() {
       });
       this.$form.trigger('submit');
 
-      this.$textarea.trigger($.Event("keydown", { keyCode: 13, which: 13, ctrlKey: true }));
+      this.$textarea.trigger(this.ctrlEnterEvent);
+    });
+
+    test('Does not submit form on cmd+enter if button is disabled', 1, function() {
+      this.$form.on('submit', function(evt) {
+        ok(true, 'Form was submitted');
+        return false;
+      });
+
+      this.$textarea.trigger(this.cmdEnterEvent);
+      this.$btn.attr('disabled', 'disabled');
+      this.$textarea.trigger(this.cmdEnterEvent);
     });
 
     test('`which` returns "⌘" on a Mac', function() {
@@ -45,7 +59,18 @@ test('Returns the jQuery object', 1, function() {
         return false;
       });
 
-      this.$textarea.trigger($.Event("keydown", { keyCode: 13, which: 13, ctrlKey: true }));
+      this.$textarea.trigger(this.ctrlEnterEvent);
+    });
+
+    test('Does not submit form on ctrl+enter if button is disabled', 1, function() {
+      this.$form.on('submit', function(evt) {
+        ok(true, 'Form was submitted');
+        return false;
+      });
+
+      this.$textarea.trigger(this.ctrlEnterEvent);
+      this.$btn.attr('disabled', 'disabled');
+      this.$textarea.trigger(this.ctrlEnterEvent);
     });
 
     test('`which` returns "Ctrl" on anything other than a Mac', function() {
