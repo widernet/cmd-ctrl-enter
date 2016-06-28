@@ -4,11 +4,7 @@ A jQuery plugin that enables <key>⌘</key>/<key>ctrl</key> + <key>enter</key> t
 
 ## Usage
 
-Include `cmd-ctrl-enter.js` script. Then add the following markup:
-
-    <textarea class="cmd-ctrl-enter"></textarea>
-
-That’s it! Alternatively, do it manually:
+Include `cmd-ctrl-enter.js` script. Then select your textareas, and call `cmdCtrlEnter`:
 
     $('textarea').cmdCtrlEnter();
 

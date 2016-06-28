@@ -18,8 +18,4 @@
     });
     return this;
   };
-
-  $(function() {
-    $('textarea.cmd-ctrl-enter').cmdCtrlEnter();
-  });
 })(jQuery);
